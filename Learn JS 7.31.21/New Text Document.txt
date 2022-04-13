@@ -1,0 +1,121 @@
+//console.log('welcome');
+// const proto = {
+//     slogan : function(){
+//         return 'this company is the best';
+
+//     },
+// changeName: function(newName){
+//     this.name = newName;
+// },
+// }
+// // this creates an object
+// const Harry = Object.create(proto);
+// Harry.name = 'Osama';
+// Harry.role = 'Programmer';
+// Harry.changeName('Haris');
+// console.log(Harry);
+// //this also creates an object
+
+// const harry1 = Object.create(proto,{
+//     name:{value: "harry1" , writable :true},
+//     role:{value:"programmer",writable:false}
+
+// });
+// harry1.name= 'Osama';
+// harry1.role = 'developer';
+// console.log(harry1);
+
+// function Employee(newName,NewSalary,newExperience){
+//     this.name = newName;
+//     this.salary = NewSalary;
+//     this.experience = newExperience;
+// }
+
+// Employee.prototype.slogan = function(){
+//     return `this company is the best regards, ${this.name}`;
+
+// }
+// let harryObj = new Employee('Osama',4343932,51);
+// console.log(harryObj.slogan());
+
+// function flour(taste, color){
+//     this.taste = taste;
+//     this.color = color;
+
+// };
+// flour.prototype.slogan = function(){
+//     return ` This is very delicious`;
+// };
+
+// let make = new flour('sweet','brown');
+// console.log(make.slogan());
+
+// function cake(flavour,taste,color){
+//     flour.call(this,taste,color);
+// this.flavour = flavour;
+
+// }
+// //manusally set the constructor and protoType
+// cake.prototype = Object.create(flour.prototype);
+// cake.prototype.constructor = flour;
+
+// let makeCake = new cake('banana','Salty','Almond');
+
+// console.log(makeCake.slogan());
+//---------------------------------------------------------
+// ES 6 Classes Ex 4
+// class library{
+    
+//     constructor(booklist){
+        
+//         this.booklist = booklist;
+//         this.issuedBook = {};
+//     }
+//     getBookList(){
+//         console.log('Available Books');
+//         this.booklist.forEach((element,index) => {
+
+//             console.log(`${index+1} ${element}`);
+
+            
+//         });
+//     }
+// issueBook(bookName,user){
+    
+//     this.bookName = bookName;
+//     this.user = user;
+//     if(this.issuedBook[bookName] == undefined){
+//         this.issuedBook[bookName] = user;
+//         console.log('Book issued Successfully');
+//     }
+//     else{
+//         console.log('book is already issued');
+//     }
+    
+// }
+// returnBook(bookName){
+//     this.bookName = bookName;
+//     if(this.issuedBook[bookName] == undefined){
+//         console.log('Nothing to return');
+//     }
+//     else{
+//         delete this.issuedBook[bookName];
+//         console.log('Book returned Successfully');
+//     }
+// }
+// }
+
+// let list = ['english','urdu','maths','oop'];
+// let lib = new library(list);
+// lib.getBookList();
+
+// lib.issueBook('english','sirfraz');
+// lib.issueBook('english','Ali');
+// // lib.returnBook('english');
+// lib.issueBook('urdu','sirfraz');
+
+// lib.returnBook('maths');
+// lib.returnBook('urdu');
+// lib.returnBook('english');
+// lib.returnBook('oop');
+// ///-----------------------------------------The End -----------------------------

@@ -1,0 +1,17 @@
+{
+  "name": "harry",
+  "version": "1.0.0",
+  "description": "This is an amazing project",
+  "main": "node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Osama",
+  "license": "ISC",
+  "dependencies": {
+    "backendless-coderunner": "^6.2.1",
+    "express": "^4.17.1",
+    "inquirer": "^8.1.5",
+    "progress": "^2.0.3"
+  }
+}

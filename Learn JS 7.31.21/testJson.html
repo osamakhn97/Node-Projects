@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   First Name <input type="text" id="fn"><br>
+   Second Name <input type="text" id="sn"><br>
+   Third name <input type="text" id="tn"><br>
+   <button id="add">Add</button>
+   <button onclick="clearAll()">Clear All</button>
+    <table style="border: 2px solid black;">
+        <thead>
+        <tr>
+            <th>Sno.</th>
+           <th>Firt Person</th>
+           <th>Second Person</th>
+           <th>Third Person</th>
+        </tr>
+    </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td>1</td>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td><button >Delete</button></td> 
+                </tr>
+            </tbody>
+    </table>
+
+    <script>
+
+
+
+function getAndUpdate(){
+    fn=document.getElementById('fn').value;
+sn=document.getElementById('sn').value;
+tn=document.getElementById('tn').value;
+        
+        if(localStorage.getItem('itemsJson')==null){
+            arr=[];
+            arr.push([fn,sn,tn]);
+        localStorage.setItem('itemsJson',JSON.stringify(arr));
+        }
+        else{
+                    arrSt = localStorage.getItem('itemsJson')
+                    arr = JSON.parse(arrSt);
+                    arr.push([fn, sn, tn]);
+                    localStorage.setItem('itemsJson', JSON.stringify(arr))
+                }
+       update();
+    }
+    function update(){
+        if(localStorage.getItem('itemsJson')==null){
+            arr=[];
+        localStorage.setItem('itemsJson',JSON.stringify(arr));
+        }
+        else{
+            arrSt = localStorage.getItem('itemsJson')
+                    arr = JSON.parse(arrSt);
+       }
+       let tableBody=document.getElementById('tableBody');
+       let str="";
+       arr.forEach((element,count) => {
+           str += `
+        <tr>
+                    <td>${count}</td>
+                    <td>${element[0]}</td>
+                    <td>${element[1]}</td>
+                    <td>${element[2]}</td>
+                    <td><button  onclick="deleted(${count})">Delete</button></td> 
+                </tr>`;
+           
+       });
+       tableBody.innerHTML=str;
+
+    }
+    function deleted(i){
+        console.log("Delete", i);
+        arrSt=localStorage.getItem('itemsJson');
+        arr= JSON.parse(arrSt);
+        arr.splice(i,1);
+        localStorage.setItem('itemsJson',JSON.stringify(arr));
+        update();
+
+
+
+    }
+    function clearAll(){
+        if(confirm("Are you sure? your data will be deleted")){
+            localStorage.clear();
+            update();
+        }
+    }
+
+    add=document.getElementById('add');
+    add.addEventListener('click',getAndUpdate);
+     update();
+    
+    </script>
+</body>
+</html>

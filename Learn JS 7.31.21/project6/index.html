@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            padding: 0px;
+        }
+        h1{
+            text-align: center;
+            background-color: crimson;
+            padding: 0px;
+        }
+    </style>
+    <link rel="stylesheet" href="prism.css">
+    <title>Postman Clone</title>
+
+</head>
+<body>
+    <h1>Postman Clone</h1>
+    <hr>
+    <label for="url">URL</label>
+    <input type="text" id="url" placeholder="enter URL"><br>
+    <label for="requestType">Request type</label>
+    <input type="radio" id="get" value="get" name="requestType" checked>GET
+    <input type="radio" id="post" value="post" name="requestType">POST <br>
+    <label for="requestType">Content type</label>
+    <input type="radio" id="json" value="json" name="contentType" checked>JSON
+    <input type="radio" id="param" value="param" name="contentType">CUSTOM PARAMETERS
+    <hr>
+    <div class="container" id="parametersBox">
+       
+                <input type="text" id="key1" placeholder="enter parameter key1">
+                <input type="text" id="value1" placeholder="enter parameter value1">
+                <button class="add" id="add">+</button>
+    </div>
+    <div class="container" id="jsonBox">
+        <textarea name="json" id="jsonText" cols="70" rows="10"></textarea>
+    </div>
+    <button id="submit">Submit</button>
+    <hr>
+    <div class="my-3" id="responseJsonBox">
+        <div class="form-group row">
+            <label for="responseJsonText" class="col-sm-2 col-form-label">Response</label>
+            <div class="col-sm-10">
+                <!-- <textarea class="form-control" id="responseJsonText" rows="3">Your response will appear here</textarea> -->
+
+                <pre id='responsePre' class="language-javascript"> <code id='responsePrism' class="language-javascript"> Your response will appear here </code> </pre>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="index.js"></script>
+    <script src="prism.js"></script>  
+</body>
+</html>

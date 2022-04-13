@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Current Time : <span id="time"></span></h1>
+    <h2>Set Alarm:</h2>
+    <hr>
+    <input type="number" id="hour">
+    <input type="number" id="min">
+    <button id="set">Set Alarm</button>
+    <script>
+        let a;
+        let time;
+        let sec;
+        let space=0;
+        let aHours = document.getElementById('hour');
+        let aMin = document.getElementById('min');
+        let set = document.getElementById('set');
+        
+        
+     
+       
+    
+    
+        setInterval(() => {
+            
+       
+            a = new Date();
+    
+            sec = a.getSeconds();
+            min = a.getMinutes();
+            hour= a.getHours();
+            md= "AM";
+            
+            if(hour>12){
+                md="PM";
+                hour=hour-12;
+            }
+            else if(hour==0){
+                hour=hour+12;
+            }
+            if(min<10 && hour>=10 && sec>=10){
+                time = ""+hour+":0"+min+":"+sec;
+          
+            }
+            else if(sec<10 && min>=10 && hour>=10){
+                time = ""+hour+":"+min+":0"+sec;
+          
+            }
+            else if(hour<10 && min>=10 && sec>=10){
+                time = "0"+hour+":"+min+":"+sec;
+          
+            }
+         else if(min<10 && sec<10 && hour<10){
+                time = "0"+hour+":0"+min+":0"+sec;
+          
+            }
+            else if(min<10 && sec<10){
+                time = hour+":0"+min+":0"+sec;
+          
+            }
+            else if(sec<10 && hour<10){
+                time = "0"+hour+":"+min+":0"+sec;
+          
+            }
+            else if(min<10 &&  hour<10){
+                time = "0"+hour+":0"+min+":"+sec;
+          
+            }
+            else{
+                time = hour+":"+min+":"+sec;
+            }
+    
+           
+            document.getElementById('time').innerHTML=time+"  "+md;
+    
+           
+          
+    
+    
+        }, 1000);
+
+        
+        let alarm = ()=>{
+            console.log('hello');
+        }
+    
+        
+        set.addEventListener('click', alarm);
+       
+    
+    </script>
+</body>
+</html>
